@@ -10,6 +10,19 @@
 - [Export Bank Statement](https://www.exportbankstatement.com/): converts PDF bank statements to Excel, CSV, QBO, OFX, QIF.
 - [Brisk Type](https://www.producthunt.com/posts/brisktype): typing/productivity product launched on Product Hunt.
 
+## Blog
+- [Blog index](https://rudratoshs.github.io/blog/): 31 articles on AI-agent security, prompt injection, LLMs, security and engineering.
+- [ELI5: Why can hiding one sentence inside a web page make an AI ignore its own owner and obey a total stranger?](https://dev.to/rudratosh/eli5-why-can-hiding-one-sentence-inside-a-web-page-make-an-ai-ignore-its-own-owner-and-obey-a-203p)
+- [Your AI guardrail is green. It's also catching nothing.](https://dev.to/rudratosh/your-ai-guardrail-is-green-its-also-catching-nothing-5eel)
+- [Meta's prompt-injection detector caught 1% of real agent attacks. One config change made it 99%. That's the problem.](https://dev.to/rudratosh/metas-prompt-injection-detector-caught-1-of-real-agent-attacks-one-config-change-made-it-99-2jom)
+- [The sandbox had no internet. The AI agent got out through DNS anyway.](https://dev.to/rudratosh/the-sandbox-had-no-internet-the-ai-agent-got-out-through-dns-anyway-2cbh)
+- [Your shopping agent reads the reviews. Attackers write the reviews. Guess who wins.](https://dev.to/rudratosh/your-shopping-agent-reads-the-reviews-attackers-write-the-reviews-guess-who-wins-3lef)
+- [An AI Correctly Ignored a Forum Rumor. I Removed One Label and It Paid Out $150.](https://dev.to/rudratosh/an-ai-correctly-ignored-a-forum-rumor-i-removed-one-label-and-it-paid-out-150-3jig)
+- [Your AI Agent Will Follow a Stranger's Instructions. Here's How I Actually Test For It.](https://dev.to/rudratosh/your-ai-agent-will-follow-a-strangers-instructions-heres-how-i-actually-test-for-it-1lg0)
+- [I tested 10 prompt-injection detectors on 629 real AI agent attacks](https://dev.to/rudratosh/i-tested-10-prompt-injection-detectors-on-629-real-ai-agent-attacks-291h)
+- [Sanity's Knowledge Base stopped 6 of 7 poisoned pages. The 7th fooled Claude Opus 5.](https://dev.to/rudratosh/sanitys-knowledge-base-stopped-6-of-7-poisoned-pages-the-7th-fooled-claude-opus-5-4fhp)
+- [AI agents can't tell who's giving the orders. So I built a tiny gate.](https://dev.to/rudratosh/ai-agents-cant-tell-whos-giving-the-orders-so-i-built-a-tiny-gate-588f)
+
 ## Profiles
 - [GitHub](https://github.com/rudratoshs)
 - [LinkedIn](https://www.linkedin.com/in/rudratosh-shastri/)

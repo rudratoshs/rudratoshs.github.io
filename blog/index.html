@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog — Rudratosh Shastri | AI-Agent Security, LLMs &amp; Engineering</title>
+<meta name="description" content="31 articles by Rudratosh Shastri on AI-agent security, prompt injection, LLM costs, security and backend engineering. Benchmarks, incidents and lessons from production.">
+<link rel="canonical" href="https://rudratoshs.github.io/blog/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Rudratosh Shastri">
+<meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b0b0d" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b0b0d'/%3E%3Ctext x='32' y='41' font-family='Arial,sans-serif' font-weight='700' font-size='24' text-anchor='middle' fill='%23d4b77c'%3ERS%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rudratosh Shastri">
+<meta property="og:title" content="Blog — Rudratosh Shastri">
+<meta property="og:description" content="AI-agent security, prompt injection, LLMs and backend engineering, from production.">
+<meta property="og:url" content="https://rudratoshs.github.io/blog/">
+<meta property="og:image" content="https://avatars.githubusercontent.com/rudratoshs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@jack_reacherrr">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Blog",
+   "@id": "https://rudratoshs.github.io/blog/#blog",
+   "url": "https://rudratoshs.github.io/blog/",
+   "name": "Rudratosh Shastri — Blog",
+   "description": "Articles on AI-agent security, prompt injection, LLMs, security and backend engineering by Rudratosh Shastri.",
+   "inLanguage": "en",
+   "author": {
+    "@type": "Person",
+    "@id": "https://rudratoshs.github.io/#person",
+    "name": "Rudratosh Shastri",
+    "url": "https://rudratoshs.github.io/"
+   },
+   "blogPost": [
+    {
+     "@type": "BlogPosting",
+     "headline": "Can a local LLM replace Claude Code? The benchmark everyone quotes is the wrong one.",
+     "url": "https://dev.to/rudratosh/can-a-local-llm-replace-claude-code-the-benchmark-everyone-quotes-is-the-wrong-one-2kna",
+     "datePublished": "2026-10-12",
+     "keywords": "ai, llm, coding, opensource",
+     "articleSection": "AI & LLMs",
+     "timeRequired": "PT11M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "The fake 'DEV Support' scam is back, and now it wants your card balance (a living list of every scam hitting dev.to)",
+     "url": "https://dev.to/rudratosh/the-fake-dev-support-scam-is-back-and-now-it-wants-your-card-balance-a-living-list-of-every-5hmc",
+     "datePublished": "2026-10-11",
+     "keywords": "security, phishing, meta",
+     "articleSection": "Security",
+     "timeRequired": "PT7M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "Apple won't give you an API for your Health data. A free Shortcut will (here's the whole pipeline)",
+     "url": "https://dev.to/rudratosh/apple-wont-give-you-an-api-for-your-health-data-a-free-shortcut-will-heres-the-whole-pipeline-1j9k",
+     "datePublished": "2026-10-11",
+     "keywords": "ios, automation, cloudflare, tutorial",
+     "articleSection": "Engineering",
+     "timeRequired": "PT9M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "Your GitHub profile is wallpaper. Mine is a spaceship.",
+     "url": "https://dev.to/rudratosh/readme-driven-development-except-the-readme-is-a-spacecraft-491h",
+     "datePublished": "2026-10-03",
+     "keywords": "github, showcase, svg, webdev",
+     "articleSection": "Engineering",
+     "timeRequired": "PT8M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "ELI5: Why can hiding one sentence inside a web page make an AI ignore its own owner and obey a total stranger?",
+     "url": "https://dev.to/rudratosh/eli5-why-can-hiding-one-sentence-inside-a-web-page-make-an-ai-ignore-its-own-owner-and-obey-a-203p",
+     "datePublished": "2026-10-01",
+     "keywords": "ai, security, explainlikeimfive",
+     "articleSection": "AI-agent security",
+     "timeRequired": "PT4M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "6 Ways You're Using Claude Code Like a Chatbot — And What Tech Leads Do Instead",
+     "url": "https://dev.to/rudratosh/6-ways-youre-using-claude-code-like-a-chatbot-and-what-tech-leads-do-instead-2l8h",
+     "datePublished": "2026-09-30",
+     "keywords": "ai, productivity, programming",
+     "articleSection": "AI & LLMs",
+     "timeRequired": "PT6M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "Your AI guardrail is green. It's also catching nothing.",
+     "url": "https://dev.to/rudratosh/your-ai-guardrail-is-green-its-also-catching-nothing-5eel",
+     "datePublished": "2026-09-30",
+     "keywords": "security, ai, machinelearning, devops",
+     "articleSection": "AI-agent security",
+     "timeRequired": "PT7M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "Meta's prompt-injection detector caught 1% of real agent attacks. One config change made it 99%. That's the problem.",
+     "url": "https://dev.to/rudratosh/metas-prompt-injection-detector-caught-1-of-real-agent-attacks-one-config-change-made-it-99-2jom",
+     "datePublished": "2026-09-29",
+     "keywords": "ai, security, machinelearning, opensource",
+     "articleSection": "AI-agent security",
+     "timeRequired": "PT6M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "'Someone already built that' is a lie. 'It's already secure' is the dangerous one.",
+     "url": "https://dev.to/rudratosh/someone-already-built-that-is-a-lie-its-already-secure-is-the-dangerous-one-5c1a",
+     "datePublished": "2026-09-29",
+     "keywords": "discuss, security, career",
+     "articleSection": "Career",
+     "timeRequired": "PT4M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "I let AI write my code for a month. The junior devs caught what it broke — I didn't.",
+     "url": "https://dev.to/rudratosh/i-let-ai-write-my-code-for-a-month-the-junior-devs-caught-what-it-broke-i-didnt-be2",
+     "datePublished": "2026-09-29",
+     "keywords": "discuss, ai, career",
+     "articleSection": "Career",
+     "timeRequired": "PT4M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "Your GitHub profile shows your follower count. It also shows attackers your whole attack surface.",
+     "url": "https://dev.to/rudratosh/your-github-profile-shows-your-follower-count-it-also-shows-attackers-your-whole-attack-surface-j7b",
+     "datePublished": "2026-09-29",
+     "keywords": "github, security, githubactions",
+     "articleSection": "Security",
+     "timeRequired": "PT4M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "Microsoft's own security update broke Ctrl+C in Excel. Here's the patch number, and don't uninstall the first one.",
+     "url": "https://dev.to/rudratosh/microsofts-own-security-update-broke-ctrlc-in-excel-heres-the-patch-number-and-dont-uninstall-4ge6",
+     "datePublished": "2026-09-28",
+     "keywords": "news, microsoft, office",
+     "articleSection": "Security",
+     "timeRequired": "PT2M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "The sandbox had no internet. The AI agent got out through DNS anyway.",
+     "url": "https://dev.to/rudratosh/the-sandbox-had-no-internet-the-ai-agent-got-out-through-dns-anyway-2cbh",
+     "datePublished": "2026-09-28",
+     "keywords": "ai, security, agents, devops",
+     "articleSection": "AI-agent security",
+     "timeRequired": "PT3M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "Your GitHub MCP server costs 55,000 tokens before your agent reads a single word.",
+     "url": "https://dev.to/rudratosh/your-github-mcp-server-costs-55000-tokens-before-your-agent-reads-a-single-word-4eah",
+     "datePublished": "2026-09-28",
+     "keywords": "mcp, ai, llm, cost",
+     "articleSection": "AI & LLMs",
+     "timeRequired": "PT3M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "Someone trained a decision model for $104. The price isn't the interesting part — it's that it refuses to write text.",
+     "url": "https://dev.to/rudratosh/someone-trained-a-decision-model-for-104-the-price-isnt-the-interesting-part-its-that-it-5e5m",
+     "datePublished": "2026-09-28",
+     "keywords": "ai, machinelearning, llm",
+     "articleSection": "AI & LLMs",
+     "timeRequired": "PT3M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "Your shopping agent reads the reviews. Attackers write the reviews. Guess who wins.",
+     "url": "https://dev.to/rudratosh/your-shopping-agent-reads-the-reviews-attackers-write-the-reviews-guess-who-wins-3lef",
+     "datePublished": "2026-09-28",
+     "keywords": "ai, security, agents",
+     "articleSection": "AI-agent security",
+     "timeRequired": "PT3M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "One prompt to GPT-6 Astra can cost $10. Here's exactly when the 1M context is worth it — and when it's a trap.",
+     "url": "https://dev.to/rudratosh/one-prompt-to-gpt-6-astra-can-cost-10-heres-exactly-when-the-1m-context-is-worth-it-and-when-1in5",
+     "datePublished": "2026-09-28",
+     "keywords": "ai, llm, cost",
+     "articleSection": "AI & LLMs",
+     "timeRequired": "PT3M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "Rust quietly ate my JavaScript toolchain in 2026, and my builds are 20x faster for it",
+     "url": "https://dev.to/rudratosh/rust-quietly-ate-my-javascript-toolchain-in-2026-and-my-builds-are-20x-faster-for-it-pn0",
+     "datePublished": "2026-09-28",
+     "keywords": "javascript, rust, typescript",
+     "articleSection": "Engineering",
+     "timeRequired": "PT3M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "2025 was about typing faster. 2026 is about knowing what not to build.",
+     "url": "https://dev.to/rudratosh/2025-was-about-typing-faster-2026-is-about-knowing-what-not-to-build-3hgg",
+     "datePublished": "2026-09-28",
+     "keywords": "discuss, career, ai",
+     "articleSection": "Career",
+     "timeRequired": "PT3M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "AI writes the code. AI reviews the code. So who's actually on the hook when it breaks?",
+     "url": "https://dev.to/rudratosh/ai-writes-the-code-ai-reviews-the-code-so-whos-actually-on-the-hook-when-it-breaks-3d7l",
+     "datePublished": "2026-09-28",
+     "keywords": "discuss, ai, career",
+     "articleSection": "Career",
+     "timeRequired": "PT3M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "Junior developer jobs didn't disappear. The bar for them quietly moved, and nobody sent the memo.",
+     "url": "https://dev.to/rudratosh/junior-developer-jobs-didnt-disappear-the-bar-for-them-quietly-moved-and-nobody-sent-the-memo-2kc8",
+     "datePublished": "2026-09-28",
+     "keywords": "career, ai, beginners",
+     "articleSection": "Career",
+     "timeRequired": "PT3M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "\"Pinned to a SHA\" is a lie your coding agent told you. Here's the Git trick behind Plugin4Shell.",
+     "url": "https://dev.to/rudratosh/pinned-to-a-sha-is-a-lie-your-coding-agent-told-you-heres-the-git-trick-behind-plugin4shell-je5",
+     "datePublished": "2026-09-28",
+     "keywords": "security, ai, git, devops",
+     "articleSection": "Security",
+     "timeRequired": "PT3M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "If you got a 'DEV Support: verify your account in 12 hours' comment — stop. It's a phishing scam.",
+     "url": "https://dev.to/rudratosh/if-you-got-a-dev-support-verify-your-account-in-12-hours-comment-stop-its-a-phishing-scam-1m5g",
+     "datePublished": "2026-09-28",
+     "keywords": "security, phishing, meta",
+     "articleSection": "Security",
+     "timeRequired": "PT3M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "An AI Correctly Ignored a Forum Rumor. I Removed One Label and It Paid Out $150.",
+     "url": "https://dev.to/rudratosh/an-ai-correctly-ignored-a-forum-rumor-i-removed-one-label-and-it-paid-out-150-3jig",
+     "datePublished": "2026-09-26",
+     "keywords": "ai, machinelearning, kagglechallenge",
+     "articleSection": "AI-agent security",
+     "timeRequired": "PT7M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "I Almost Built a Startup This Week. The Evidence Said No — In One Afternoon.",
+     "url": "https://dev.to/rudratosh/i-almost-built-a-startup-this-week-the-evidence-said-no-in-one-afternoon-2jd0",
+     "datePublished": "2026-09-26",
+     "keywords": "startup, career, ai",
+     "articleSection": "Career",
+     "timeRequired": "PT5M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "10 Years In, Everything I Was Proud Of As a Junior Was Wrong",
+     "url": "https://dev.to/rudratosh/10-years-in-everything-i-was-proud-of-as-a-junior-was-wrong-igo",
+     "datePublished": "2026-09-26",
+     "keywords": "career, backend, programming",
+     "articleSection": "Career",
+     "timeRequired": "PT4M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "Your AI Agent Will Follow a Stranger's Instructions. Here's How I Actually Test For It.",
+     "url": "https://dev.to/rudratosh/your-ai-agent-will-follow-a-strangers-instructions-heres-how-i-actually-test-for-it-1lg0",
+     "datePublished": "2026-09-26",
+     "keywords": "ai, security, python, opensource",
+     "articleSection": "AI-agent security",
+     "timeRequired": "PT5M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "The Hidden Bill: Where AI Agent Costs Actually Come From",
+     "url": "https://dev.to/rudratosh/the-hidden-bill-where-ai-agent-costs-actually-come-from-56fi",
+     "datePublished": "2026-09-25",
+     "keywords": "ai, agents, llm, cost",
+     "articleSection": "AI & LLMs",
+     "timeRequired": "PT5M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "I tested 10 prompt-injection detectors on 629 real AI agent attacks",
+     "url": "https://dev.to/rudratosh/i-tested-10-prompt-injection-detectors-on-629-real-ai-agent-attacks-291h",
+     "datePublished": "2026-09-24",
+     "keywords": "ai, security, llm, opensource",
+     "articleSection": "AI-agent security",
+     "timeRequired": "PT4M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "Sanity's Knowledge Base stopped 6 of 7 poisoned pages. The 7th fooled Claude Opus 5.",
+     "url": "https://dev.to/rudratosh/sanitys-knowledge-base-stopped-6-of-7-poisoned-pages-the-7th-fooled-claude-opus-5-4fhp",
+     "datePublished": "2026-09-24",
+     "keywords": "ai, sanity, devchallenge",
+     "articleSection": "AI-agent security",
+     "timeRequired": "PT7M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    },
+    {
+     "@type": "BlogPosting",
+     "headline": "AI agents can't tell who's giving the orders. So I built a tiny gate.",
+     "url": "https://dev.to/rudratosh/ai-agents-cant-tell-whos-giving-the-orders-so-i-built-a-tiny-gate-588f",
+     "datePublished": "2026-09-24",
+     "keywords": "ai, security, python, opensource",
+     "articleSection": "AI-agent security",
+     "timeRequired": "PT7M",
+     "author": {
+      "@id": "https://rudratoshs.github.io/#person"
+     }
+    }
+   ]
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://rudratoshs.github.io/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Blog",
+     "item": "https://rudratoshs.github.io/blog/"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<style>
+  :root{
+    --bg:#f7f5f0;--bg2:#efece4;--card:rgba(255,255,255,.72);--ink:#15130e;--muted:#5f5a4f;--line:rgba(21,19,14,.11);
+    --gold:#86662a;--gold-hi:#c9a24f;--glow:rgba(201,162,79,.28);--dot:21,19,14;
+    --sans:"Manrope",ui-sans-serif,system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  @media (prefers-color-scheme: dark){:root{
+    --bg:#0b0b0d;--bg2:#121215;--card:rgba(255,255,255,.035);--ink:#f2efe8;--muted:#a19c90;--line:rgba(255,255,255,.09);
+    --gold:#d9bd82;--gold-hi:#f3e2b5;--glow:rgba(217,189,130,.18);--dot:255,255,255;
+  }}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:var(--ink);text-decoration-color:var(--gold);text-underline-offset:4px}
+  a:hover{color:var(--gold)}
+  ::selection{background:var(--gold);color:var(--bg)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative}
+  .skip{position:absolute;left:-999px}.skip:focus{left:16px;top:16px;background:var(--ink);color:var(--bg);padding:8px 12px;z-index:99}
+  .mono{font-family:var(--mono)}
+
+  #bg{position:fixed;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none}
+  .orb{position:fixed;left:0;top:0;width:620px;height:620px;margin:-310px 0 0 -310px;border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 65%);z-index:-1;pointer-events:none;transform:translate3d(var(--ox,50vw),var(--oy,30vh),0);transition:transform 1.2s var(--ease)}
+  .progress{position:fixed;top:0;left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(var(--p,0));background:linear-gradient(90deg,var(--gold),var(--gold-hi));z-index:60}
+
+  .nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:4px;padding:6px;border:1px solid var(--line);border-radius:999px;background:color-mix(in oklab,var(--bg) 70%,transparent);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);animation:drop .9s var(--ease) both .2s}
+  .nav a{position:relative;font:500 13px/1 var(--sans);padding:10px 14px;border-radius:999px;text-decoration:none;color:var(--muted);transition:color .3s}
+  .nav a:hover,.nav a.on{color:var(--ink)}
+  .nav a.on::after{content:"";position:absolute;left:50%;bottom:4px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:var(--gold)}
+  .nav .logo{font:700 13px/1 var(--mono);color:var(--gold);padding:10px 12px}
+  @media(max-width:640px){.nav a:not(.logo):nth-child(n+5){display:none}}
+
+  .hero{min-height:100svh;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:56px;align-items:center;padding:120px 0 80px}
+  @media(max-width:900px){.hero{grid-template-columns:1fr;gap:40px;padding-top:110px;min-height:auto}.portrait{order:-1;justify-self:start}}
+  .role{display:inline-flex;align-items:center;gap:10px;font:500 13px/1 var(--mono);color:var(--gold);padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+  .role i{width:7px;height:7px;border-radius:50%;background:#3fb26b;box-shadow:0 0 0 0 rgba(63,178,107,.6);animation:ping 2s infinite}
+  .role .cur{display:inline-block;width:1px;height:14px;background:var(--gold);margin-left:2px;animation:blink 1s steps(1) infinite}
+  h1{font:300 clamp(48px,8.4vw,116px)/.95 var(--sans);letter-spacing:-.045em;margin:28px 0 28px}
+  h1 .w{display:block;overflow:hidden;padding-bottom:.06em}
+  h1 .c{display:inline-block;transform:translateY(110%);animation:rise 1.1s var(--ease) forwards}
+  h1 .gold{font-weight:700}
+  h1 .gold .c{background:linear-gradient(100deg,var(--gold) 20%,var(--gold-hi) 45%,var(--gold) 70%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rise 1.1s var(--ease) forwards,shine 6s linear infinite}
+  .answer{font-size:clamp(17px,1.6vw,19.5px);line-height:1.6;color:var(--muted);max-width:54ch;margin:0;text-wrap:pretty}
+  .answer strong{color:var(--ink);font-weight:600}
+  .answer a{color:var(--ink)}
+  .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font:600 14px/1 var(--sans);padding:14px 20px;border-radius:999px;border:1px solid var(--line);background:var(--card);text-decoration:none;color:var(--ink);backdrop-filter:blur(8px);transition:border-color .3s,background .3s,color .3s;will-change:transform}
+  .btn:hover{border-color:var(--gold);color:var(--ink)}
+  .btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .btn.primary:hover{background:var(--gold);border-color:var(--gold);color:var(--bg)}
+
+  .portrait{position:relative;width:min(400px,78vw,100%);aspect-ratio:1;justify-self:center}
+  .ring{position:absolute;inset:0;animation:spin 28s linear infinite}
+  .ring text{font:500 12.5px var(--mono);letter-spacing:.32em;fill:var(--gold);text-transform:uppercase}
+  .photo{position:absolute;inset:15%;border-radius:50%;overflow:hidden;border:1px solid var(--line);background:var(--bg2);box-shadow:0 40px 80px -30px var(--glow),0 0 0 10px color-mix(in oklab,var(--bg) 60%,transparent)}
+  .photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.35) contrast(1.05);transition:filter .6s,transform 1.2s var(--ease)}
+  .portrait:hover .photo img{filter:none;transform:scale(1.04)}
+  .orbit{position:absolute;inset:6%;border:1px dashed var(--line);border-radius:50%;animation:spin 60s linear infinite reverse}
+  .orbit::before{content:"";position:absolute;top:50%;left:-5px;width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 20px var(--gold)}
+
+  .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden;margin:0}
+  @media(max-width:800px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .stats div{background:var(--bg);padding:28px 26px}
+  .stats dt{font:500 12px/1.4 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em;order:2}
+  .stats dd{margin:0 0 6px;font:300 clamp(40px,5vw,60px)/1 var(--sans);letter-spacing:-.04em}
+  .stats dd span{color:var(--gold)}
+  .stats div{display:flex;flex-direction:column}
+  .meta{display:flex;flex-wrap:wrap;gap:10px 28px;margin:22px 0 0;padding:0;list-style:none;font:500 13px/1.4 var(--mono);color:var(--muted)}
+  .meta b{color:var(--ink);font-weight:500}
+
+  section{padding:150px 0 0}
+  .label{display:flex;align-items:center;gap:12px;font:500 12.5px/1 var(--mono);color:var(--gold);text-transform:uppercase;letter-spacing:.12em;margin-bottom:22px}
+  .label::before{content:"";width:32px;height:1px;background:currentColor}
+  h2{font:300 clamp(38px,5.4vw,72px)/1.02 var(--sans);letter-spacing:-.04em;margin:0 0 56px;max-width:16ch;text-wrap:balance}
+  h2 b{font-weight:700;color:var(--gold)}
+
+  .scrub{font:400 clamp(24px,3.2vw,40px)/1.3 var(--sans);letter-spacing:-.02em;margin:0;max-width:30ch;text-wrap:pretty}
+  .scrub .wd{opacity:.18;transition:opacity .35s}
+  .scrub .wd.lit{opacity:1}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:44px}
+  .chips span{font:500 13px/1 var(--mono);padding:11px 15px;border:1px solid var(--line);border-radius:999px;background:var(--card);transition:border-color .3s,color .3s,transform .4s var(--ease)}
+  .chips span:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+
+  .bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+  .bento .s4{grid-column:span 4}.bento .s2{grid-column:span 2}.bento .s3{grid-column:span 3}
+  @media(max-width:900px){.bento .s4,.bento .s2,.bento .s3{grid-column:span 6}}
+  .card{position:relative;display:flex;flex-direction:column;gap:14px;min-height:320px;padding:30px;border-radius:24px;border:1px solid var(--line);background:var(--card);text-decoration:none;color:var(--ink);overflow:hidden;isolation:isolate;transition:transform .6s var(--ease),border-color .4s}
+  .card::before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;transition:opacity .4s;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),var(--glow),transparent 60%)}
+  .card:hover{transform:translateY(-4px);border-color:color-mix(in oklab,var(--gold) 45%,transparent);color:var(--ink)}
+  .card:hover::before{opacity:1}
+  .card .top{display:flex;justify-content:space-between;align-items:center;font:500 12px/1 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+  .arrow{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);font-size:16px;color:var(--ink);transition:transform .5s var(--ease),background .3s,color .3s}
+  .card:hover .arrow{transform:rotate(45deg);background:var(--gold);color:var(--bg);border-color:var(--gold)}
+  .card h3{font:600 clamp(26px,2.6vw,34px)/1.1 var(--sans);letter-spacing:-.03em;margin:8px 0 0}
+  .card p{margin:0;color:var(--muted);font-size:16px;max-width:52ch;text-wrap:pretty}
+  .pill{align-self:flex-start;margin-top:auto;font:500 12px/1 var(--mono);padding:8px 12px;border-radius:999px;border:1px solid color-mix(in oklab,var(--gold) 40%,transparent);color:var(--gold)}
+  .dots{display:grid;grid-template-columns:repeat(auto-fill,minmax(7px,1fr));gap:4px;margin-top:auto;padding-top:20px}
+  .dots i{aspect-ratio:1;border-radius:50%;background:rgba(var(--dot),.12);transition:background .2s}
+  .dots i.on{background:var(--gold)}
+  .dots-cap{display:flex;justify-content:space-between;font:500 12px/1 var(--mono);color:var(--muted);margin-top:10px}
+  .dots-cap b{color:var(--ink);font-weight:500}
+  .flow{display:flex;flex-direction:column;gap:10px;margin-top:auto;font:500 12.5px/1 var(--mono)}
+  .flow span{display:flex;justify-content:space-between;gap:10px;white-space:nowrap;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg)}
+  .flow .x{border-color:color-mix(in oklab,#e0533a 50%,transparent);color:#e0533a;animation:pulseR 2.6s var(--ease) infinite}
+  .flow em{font-style:normal;color:var(--muted)}
+
+  .posts{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+  .posts a{position:relative;display:grid;grid-template-columns:70px minmax(0,1fr) auto 40px;gap:20px;align-items:center;padding:28px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
+  .posts a::after{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:0 50%;transition:transform .7s var(--ease)}
+  .posts a:hover::after{transform:scaleX(1)}
+  .posts .n{font:500 13px/1 var(--mono);color:var(--muted)}
+  .posts .t{font:500 clamp(19px,2vw,25px)/1.25 var(--sans);letter-spacing:-.02em;transition:transform .6s var(--ease)}
+  .posts a:hover .t{transform:translateX(10px)}
+  .posts .m{font:500 12px/1 var(--mono);color:var(--muted);white-space:nowrap}
+  .posts .go{justify-self:end;opacity:0;transform:translateX(-10px);transition:opacity .4s,transform .5s var(--ease);color:var(--gold)}
+  .posts a:hover .go{opacity:1;transform:none}
+  @media(max-width:700px){.posts a{grid-template-columns:40px minmax(0,1fr)}.posts .m,.posts .go{display:none}}
+  .more{margin-top:32px}
+
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq details:first-of-type{border-top:1px solid var(--line)}
+  .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:28px 0;font:500 clamp(19px,2vw,24px)/1.3 var(--sans);letter-spacing:-.02em;transition:color .3s}
+  .faq summary:hover{color:var(--gold)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary i{flex:none;position:relative;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);transition:transform .5s var(--ease),background .3s}
+  .faq summary i::before,.faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;margin:-.75px 0 0 -6px;background:currentColor}
+  .faq summary i::after{transform:rotate(90deg);transition:transform .5s var(--ease)}
+  .faq details[open] summary i{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+  .faq details[open] summary i::after{transform:rotate(0)}
+  .faq p{margin:0 0 30px;max-width:66ch;color:var(--muted);font-size:17px;text-wrap:pretty;animation:fade .6s var(--ease)}
+
+  footer{padding:180px 0 40px;text-align:center;position:relative}
+  .cta{display:inline-block;font:300 clamp(46px,9vw,128px)/1 var(--sans);letter-spacing:-.05em;text-decoration:none;color:var(--ink)}
+  .cta b{font-weight:700;background:linear-gradient(100deg,var(--gold) 20%,var(--gold-hi) 45%,var(--gold) 70%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+  .cta:hover{color:var(--ink)}
+  .cta-sub{color:var(--muted);margin:22px auto 34px;max-width:46ch}
+  .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-top:140px;padding-top:24px;border-top:1px solid var(--line);font:500 12.5px/1.6 var(--mono);color:var(--muted);text-align:left}
+  .foot nav{display:flex;gap:22px;flex-wrap:wrap}
+  .foot a{color:var(--muted);text-decoration:none}.foot a:hover{color:var(--gold)}
+
+
+  .post{min-height:250px;gap:12px;padding:26px}
+  .post h3{font:600 clamp(19px,1.7vw,22px)/1.28 var(--sans);letter-spacing:-.02em;margin:4px 0 0;text-wrap:pretty}
+  .post.feature h3{font-size:clamp(28px,3.2vw,44px);line-height:1.08;letter-spacing:-.035em;max-width:20ch}
+  .post .cat{color:var(--gold)}
+  .pmeta{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:auto;font:500 12.5px/1 var(--mono);color:var(--muted)}
+  .pmeta>*{white-space:nowrap}
+  .pmeta span::before{content:"·";margin-right:14px}
+  .ptags{font:500 12px/1.5 var(--mono);color:var(--muted);opacity:.8}
+  .blog-grid .s2{grid-row:span 1}
+  @media(min-width:901px){.blog-grid{grid-template-columns:repeat(8,minmax(0,1fr))}.blog-grid .feature{grid-column:span 4;grid-row:span 2}.blog-grid .s2{grid-column:span 2}}
+  @media(min-width:901px){.blog-grid .s2 .ptags{display:none}}
+  .rv{opacity:0;transform:translateY(36px);filter:blur(8px);transition:opacity 1s var(--ease),transform 1.1s var(--ease),filter 1s var(--ease);transition-delay:var(--d,0s)}
+  .rv.in{opacity:1;transform:none;filter:none}
+
+  @keyframes rise{to{transform:none}}
+  @keyframes shine{to{background-position:-250% 0}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes blink{50%{opacity:0}}
+  @keyframes drop{from{opacity:0;transform:translate(-50%,-20px)}}
+  @keyframes fade{from{opacity:0;transform:translateY(-6px)}}
+  @keyframes ping{70%{box-shadow:0 0 0 8px rgba(63,178,107,0)}100%{box-shadow:0 0 0 0 rgba(63,178,107,0)}}
+  @keyframes pulseR{50%{box-shadow:0 0 0 6px color-mix(in oklab,#e0533a 12%,transparent)}}
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}h1 .c{transform:none}}
+</style>
+<style>
+  .bhero{padding:150px 0 60px}
+  .bhero h1{font:300 clamp(44px,7vw,96px)/.98 var(--sans);letter-spacing:-.045em;margin:0 0 26px;max-width:14ch}
+  .bhero h1 b{font-weight:700;background:linear-gradient(100deg,var(--gold) 20%,var(--gold-hi) 45%,var(--gold) 70%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+  .crumbs{display:flex;gap:10px;font:500 12.5px/1 var(--mono);color:var(--muted);margin-bottom:30px}
+  .crumbs a{color:var(--muted);text-decoration:none}.crumbs a:hover{color:var(--gold)}
+  .toolbar{position:sticky;top:74px;z-index:20;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:14px 0;margin-bottom:28px;background:color-mix(in oklab,var(--bg) 82%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .filters{display:flex;flex-wrap:wrap;gap:8px}
+  .filters button{font:500 13px/1 var(--mono);padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer;transition:all .3s var(--ease)}
+  .filters button sup{font-size:10px;margin-left:4px;opacity:.7}
+  .filters button:hover{color:var(--ink);border-color:var(--gold)}
+  .filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .search{position:relative}
+  .search input{font:500 14px/1 var(--sans);width:min(280px,80vw);padding:12px 16px 12px 38px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);outline:none;transition:border-color .3s}
+  .search input:focus{border-color:var(--gold)}
+  .search::before{content:"⌕";position:absolute;left:14px;top:50%;transform:translateY(-52%);color:var(--muted);font-size:17px}
+  .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  @media(max-width:1000px){.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:640px){.grid3{grid-template-columns:1fr}.toolbar{position:static}}
+  .grid3 .feature{grid-column:span 2}
+  @media(max-width:640px){.grid3 .feature{grid-column:span 1}}
+  .post.hide{display:none}
+  .post.pop{animation:pop .6s var(--ease) both}
+  .empty{display:none;padding:60px 0;text-align:center;color:var(--muted);font:500 14px/1.5 var(--mono)}
+  .rcount{font:500 12.5px/1 var(--mono);color:var(--muted)}
+  @keyframes pop{from{opacity:0;transform:translateY(16px) scale(.98)}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="orb" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"></div>
+<nav class="nav" aria-label="Site">
+  <a class="logo" href="../index.html" aria-label="Home">RS</a>
+  <a href="../index.html#work">Work</a><a href="../index.html#opensource">Open source</a><a href="../index.html#products">Products</a><a class="on" href="index.html" aria-current="page">Blog</a><a href="../index.html#faq">FAQ</a>
+</nav>
+<main id="main">
+<div class="wrap">
+  <header class="bhero">
+    <nav class="crumbs rv" aria-label="Breadcrumb"><a href="../index.html">Home</a><span>/</span><span>Blog</span></nav>
+    <div class="label rv">Blog · Rudratosh Shastri</div>
+    <h1 class="rv" style="--d:.1s">Writing on <b>AI-agent security</b> &amp; engineering</h1>
+    <p class="answer rv" style="--d:.2s">31 articles by <strong>Rudratosh Shastri</strong> on how AI agents get tricked through the content they read, how to measure prompt-injection defences honestly, what LLMs really cost, and the security and backend engineering lessons from 15 years of shipping.</p>
+  </header>
+
+  <div class="toolbar rv" style="--d:.3s">
+    <div class="filters" role="group" aria-label="Filter by topic">
+      <button type="button" data-f="All" aria-pressed="true">All<sup>31</sup></button><button type="button" data-f="AI-agent security" aria-pressed="false">AI-agent security<sup>10</sup></button><button type="button" data-f="AI &amp; LLMs" aria-pressed="false">AI &amp; LLMs<sup>6</sup></button><button type="button" data-f="Security" aria-pressed="false">Security<sup>5</sup></button><button type="button" data-f="Engineering" aria-pressed="false">Engineering<sup>3</sup></button><button type="button" data-f="Career" aria-pressed="false">Career<sup>7</sup></button>
+    </div>
+    <div style="display:flex;gap:16px;align-items:center"><span class="rcount" id="rc">31 posts</span><label class="search"><span class="skip">Search posts</span><input id="q" type="search" placeholder="Search posts" autocomplete="off"></label></div>
+  </div>
+
+  <div class="grid3" id="list">
+<a class="card post feature rv" style="--d:0s" href="https://dev.to/rudratosh/can-a-local-llm-replace-claude-code-the-benchmark-everyone-quotes-is-the-wrong-one-2kna" data-cat="AI &amp; LLMs" data-title="can a local llm replace claude code? the benchmark everyone quotes is the wrong one.">
+  <div class="top"><span class="cat">AI &amp; LLMs</span><span class="arrow">↗</span></div>
+  <h3>Can a local LLM replace Claude Code? The benchmark everyone quotes is the wrong one.</h3>
+  <div class="pmeta"><time datetime="2026-10-12">12 Oct 2026</time><span>11 min read</span></div>
+  <div class="ptags">#ai #llm #coding #opensource</div>
+</a>
+<a class="card post  rv" style="--d:0.06s" href="https://dev.to/rudratosh/the-fake-dev-support-scam-is-back-and-now-it-wants-your-card-balance-a-living-list-of-every-5hmc" data-cat="Security" data-title="the fake 'dev support' scam is back, and now it wants your card balance (a living list of every scam hitting dev.to)">
+  <div class="top"><span class="cat">Security</span><span class="arrow">↗</span></div>
+  <h3>The fake 'DEV Support' scam is back, and now it wants your card balance (a living list of every scam hitting dev.to)</h3>
+  <div class="pmeta"><time datetime="2026-10-11">11 Oct 2026</time><span>7 min read</span></div>
+  <div class="ptags">#security #phishing #meta</div>
+</a>
+<a class="card post  rv" style="--d:0.12s" href="https://dev.to/rudratosh/apple-wont-give-you-an-api-for-your-health-data-a-free-shortcut-will-heres-the-whole-pipeline-1j9k" data-cat="Engineering" data-title="apple won't give you an api for your health data. a free shortcut will (here's the whole pipeline)">
+  <div class="top"><span class="cat">Engineering</span><span class="arrow">↗</span></div>
+  <h3>Apple won't give you an API for your Health data. A free Shortcut will (here's the whole pipeline)</h3>
+  <div class="pmeta"><time datetime="2026-10-11">11 Oct 2026</time><span>9 min read</span></div>
+  <div class="ptags">#ios #automation #cloudflare #tutorial</div>
+</a>
+<a class="card post  rv" style="--d:0s" href="https://dev.to/rudratosh/readme-driven-development-except-the-readme-is-a-spacecraft-491h" data-cat="Engineering" data-title="your github profile is wallpaper. mine is a spaceship.">
+  <div class="top"><span class="cat">Engineering</span><span class="arrow">↗</span></div>
+  <h3>Your GitHub profile is wallpaper. Mine is a spaceship.</h3>
+  <div class="pmeta"><time datetime="2026-10-03">3 Oct 2026</time><span>8 min read</span></div>
+  <div class="ptags">#github #showcase #svg #webdev</div>
+</a>
+<a class="card post  rv" style="--d:0.06s" href="https://dev.to/rudratosh/eli5-why-can-hiding-one-sentence-inside-a-web-page-make-an-ai-ignore-its-own-owner-and-obey-a-203p" data-cat="AI-agent security" data-title="eli5: why can hiding one sentence inside a web page make an ai ignore its own owner and obey a total stranger?">
+  <div class="top"><span class="cat">AI-agent security</span><span class="arrow">↗</span></div>
+  <h3>ELI5: Why can hiding one sentence inside a web page make an AI ignore its own owner and obey a total stranger?</h3>
+  <div class="pmeta"><time datetime="2026-10-01">1 Oct 2026</time><span>4 min read</span></div>
+  <div class="ptags">#ai #security #explainlikeimfive</div>
+</a>
+<a class="card post  rv" style="--d:0.12s" href="https://dev.to/rudratosh/6-ways-youre-using-claude-code-like-a-chatbot-and-what-tech-leads-do-instead-2l8h" data-cat="AI &amp; LLMs" data-title="6 ways you're using claude code like a chatbot — and what tech leads do instead">
+  <div class="top"><span class="cat">AI &amp; LLMs</span><span class="arrow">↗</span></div>
+  <h3>6 Ways You're Using Claude Code Like a Chatbot — And What Tech Leads Do Instead</h3>
+  <div class="pmeta"><time datetime="2026-09-30">30 Sep 2026</time><span>6 min read</span></div>
+  <div class="ptags">#ai #productivity #programming</div>
+</a>
+<a class="card post  rv" style="--d:0s" href="https://dev.to/rudratosh/your-ai-guardrail-is-green-its-also-catching-nothing-5eel" data-cat="AI-agent security" data-title="your ai guardrail is green. it's also catching nothing.">
+  <div class="top"><span class="cat">AI-agent security</span><span class="arrow">↗</span></div>
+  <h3>Your AI guardrail is green. It's also catching nothing.</h3>
+  <div class="pmeta"><time datetime="2026-09-30">30 Sep 2026</time><span>7 min read</span></div>
+  <div class="ptags">#security #ai #machinelearning #devops</div>
+</a>
+<a class="card post  rv" style="--d:0.06s" href="https://dev.to/rudratosh/metas-prompt-injection-detector-caught-1-of-real-agent-attacks-one-config-change-made-it-99-2jom" data-cat="AI-agent security" data-title="meta's prompt-injection detector caught 1% of real agent attacks. one config change made it 99%. that's the problem.">
+  <div class="top"><span class="cat">AI-agent security</span><span class="arrow">↗</span></div>
+  <h3>Meta's prompt-injection detector caught 1% of real agent attacks. One config change made it 99%. That's the problem.</h3>
+  <div class="pmeta"><time datetime="2026-09-29">29 Sep 2026</time><span>6 min read</span></div>
+  <div class="ptags">#ai #security #machinelearning #opensource</div>
+</a>
+<a class="card post  rv" style="--d:0.12s" href="https://dev.to/rudratosh/someone-already-built-that-is-a-lie-its-already-secure-is-the-dangerous-one-5c1a" data-cat="Career" data-title="'someone already built that' is a lie. 'it's already secure' is the dangerous one.">
+  <div class="top"><span class="cat">Career</span><span class="arrow">↗</span></div>
+  <h3>'Someone already built that' is a lie. 'It's already secure' is the dangerous one.</h3>
+  <div class="pmeta"><time datetime="2026-09-29">29 Sep 2026</time><span>4 min read</span></div>
+  <div class="ptags">#discuss #security #career</div>
+</a>
+<a class="card post  rv" style="--d:0s" href="https://dev.to/rudratosh/i-let-ai-write-my-code-for-a-month-the-junior-devs-caught-what-it-broke-i-didnt-be2" data-cat="Career" data-title="i let ai write my code for a month. the junior devs caught what it broke — i didn't.">
+  <div class="top"><span class="cat">Career</span><span class="arrow">↗</span></div>
+  <h3>I let AI write my code for a month. The junior devs caught what it broke — I didn't.</h3>
+  <div class="pmeta"><time datetime="2026-09-29">29 Sep 2026</time><span>4 min read</span></div>
+  <div class="ptags">#discuss #ai #career</div>
+</a>
+<a class="card post  rv" style="--d:0.06s" href="https://dev.to/rudratosh/your-github-profile-shows-your-follower-count-it-also-shows-attackers-your-whole-attack-surface-j7b" data-cat="Security" data-title="your github profile shows your follower count. it also shows attackers your whole attack surface.">
+  <div class="top"><span class="cat">Security</span><span class="arrow">↗</span></div>
+  <h3>Your GitHub profile shows your follower count. It also shows attackers your whole attack surface.</h3>
+  <div class="pmeta"><time datetime="2026-09-29">29 Sep 2026</time><span>4 min read</span></div>
+  <div class="ptags">#github #security #githubactions</div>
+</a>
+<a class="card post  rv" style="--d:0.12s" href="https://dev.to/rudratosh/microsofts-own-security-update-broke-ctrlc-in-excel-heres-the-patch-number-and-dont-uninstall-4ge6" data-cat="Security" data-title="microsoft's own security update broke ctrl+c in excel. here's the patch number, and don't uninstall the first one.">
+  <div class="top"><span class="cat">Security</span><span class="arrow">↗</span></div>
+  <h3>Microsoft's own security update broke Ctrl+C in Excel. Here's the patch number, and don't uninstall the first one.</h3>
+  <div class="pmeta"><time datetime="2026-09-28">28 Sep 2026</time><span>2 min read</span></div>
+  <div class="ptags">#news #microsoft #office</div>
+</a>
+<a class="card post  rv" style="--d:0s" href="https://dev.to/rudratosh/the-sandbox-had-no-internet-the-ai-agent-got-out-through-dns-anyway-2cbh" data-cat="AI-agent security" data-title="the sandbox had no internet. the ai agent got out through dns anyway.">
+  <div class="top"><span class="cat">AI-agent security</span><span class="arrow">↗</span></div>
+  <h3>The sandbox had no internet. The AI agent got out through DNS anyway.</h3>
+  <div class="pmeta"><time datetime="2026-09-28">28 Sep 2026</time><span>3 min read</span></div>
+  <div class="ptags">#ai #security #agents #devops</div>
+</a>
+<a class="card post  rv" style="--d:0.06s" href="https://dev.to/rudratosh/your-github-mcp-server-costs-55000-tokens-before-your-agent-reads-a-single-word-4eah" data-cat="AI &amp; LLMs" data-title="your github mcp server costs 55,000 tokens before your agent reads a single word.">
+  <div class="top"><span class="cat">AI &amp; LLMs</span><span class="arrow">↗</span></div>
+  <h3>Your GitHub MCP server costs 55,000 tokens before your agent reads a single word.</h3>
+  <div class="pmeta"><time datetime="2026-09-28">28 Sep 2026</time><span>3 min read</span></div>
+  <div class="ptags">#mcp #ai #llm #cost</div>
+</a>
+<a class="card post  rv" style="--d:0.12s" href="https://dev.to/rudratosh/someone-trained-a-decision-model-for-104-the-price-isnt-the-interesting-part-its-that-it-5e5m" data-cat="AI &amp; LLMs" data-title="someone trained a decision model for $104. the price isn't the interesting part — it's that it refuses to write text.">
+  <div class="top"><span class="cat">AI &amp; LLMs</span><span class="arrow">↗</span></div>
+  <h3>Someone trained a decision model for $104. The price isn't the interesting part — it's that it refuses to write text.</h3>
+  <div class="pmeta"><time datetime="2026-09-28">28 Sep 2026</time><span>3 min read</span></div>
+  <div class="ptags">#ai #machinelearning #llm</div>
+</a>
+<a class="card post  rv" style="--d:0s" href="https://dev.to/rudratosh/your-shopping-agent-reads-the-reviews-attackers-write-the-reviews-guess-who-wins-3lef" data-cat="AI-agent security" data-title="your shopping agent reads the reviews. attackers write the reviews. guess who wins.">
+  <div class="top"><span class="cat">AI-agent security</span><span class="arrow">↗</span></div>
+  <h3>Your shopping agent reads the reviews. Attackers write the reviews. Guess who wins.</h3>
+  <div class="pmeta"><time datetime="2026-09-28">28 Sep 2026</time><span>3 min read</span></div>
+  <div class="ptags">#ai #security #agents</div>
+</a>
+<a class="card post  rv" style="--d:0.06s" href="https://dev.to/rudratosh/one-prompt-to-gpt-6-astra-can-cost-10-heres-exactly-when-the-1m-context-is-worth-it-and-when-1in5" data-cat="AI &amp; LLMs" data-title="one prompt to gpt-6 astra can cost $10. here's exactly when the 1m context is worth it — and when it's a trap.">
+  <div class="top"><span class="cat">AI &amp; LLMs</span><span class="arrow">↗</span></div>
+  <h3>One prompt to GPT-6 Astra can cost $10. Here's exactly when the 1M context is worth it — and when it's a trap.</h3>
+  <div class="pmeta"><time datetime="2026-09-28">28 Sep 2026</time><span>3 min read</span></div>
+  <div class="ptags">#ai #llm #cost</div>
+</a>
+<a class="card post  rv" style="--d:0.12s" href="https://dev.to/rudratosh/rust-quietly-ate-my-javascript-toolchain-in-2026-and-my-builds-are-20x-faster-for-it-pn0" data-cat="Engineering" data-title="rust quietly ate my javascript toolchain in 2026, and my builds are 20x faster for it">
+  <div class="top"><span class="cat">Engineering</span><span class="arrow">↗</span></div>
+  <h3>Rust quietly ate my JavaScript toolchain in 2026, and my builds are 20x faster for it</h3>
+  <div class="pmeta"><time datetime="2026-09-28">28 Sep 2026</time><span>3 min read</span></div>
+  <div class="ptags">#javascript #rust #typescript</div>
+</a>
+<a class="card post  rv" style="--d:0s" href="https://dev.to/rudratosh/2025-was-about-typing-faster-2026-is-about-knowing-what-not-to-build-3hgg" data-cat="Career" data-title="2025 was about typing faster. 2026 is about knowing what not to build.">
+  <div class="top"><span class="cat">Career</span><span class="arrow">↗</span></div>
+  <h3>2025 was about typing faster. 2026 is about knowing what not to build.</h3>
+  <div class="pmeta"><time datetime="2026-09-28">28 Sep 2026</time><span>3 min read</span></div>
+  <div class="ptags">#discuss #career #ai</div>
+</a>
+<a class="card post  rv" style="--d:0.06s" href="https://dev.to/rudratosh/ai-writes-the-code-ai-reviews-the-code-so-whos-actually-on-the-hook-when-it-breaks-3d7l" data-cat="Career" data-title="ai writes the code. ai reviews the code. so who's actually on the hook when it breaks?">
+  <div class="top"><span class="cat">Career</span><span class="arrow">↗</span></div>
+  <h3>AI writes the code. AI reviews the code. So who's actually on the hook when it breaks?</h3>
+  <div class="pmeta"><time datetime="2026-09-28">28 Sep 2026</time><span>3 min read</span></div>
+  <div class="ptags">#discuss #ai #career</div>
+</a>
+<a class="card post  rv" style="--d:0.12s" href="https://dev.to/rudratosh/junior-developer-jobs-didnt-disappear-the-bar-for-them-quietly-moved-and-nobody-sent-the-memo-2kc8" data-cat="Career" data-title="junior developer jobs didn't disappear. the bar for them quietly moved, and nobody sent the memo.">
+  <div class="top"><span class="cat">Career</span><span class="arrow">↗</span></div>
+  <h3>Junior developer jobs didn't disappear. The bar for them quietly moved, and nobody sent the memo.</h3>
+  <div class="pmeta"><time datetime="2026-09-28">28 Sep 2026</time><span>3 min read</span></div>
+  <div class="ptags">#career #ai #beginners</div>
+</a>
+<a class="card post  rv" style="--d:0s" href="https://dev.to/rudratosh/pinned-to-a-sha-is-a-lie-your-coding-agent-told-you-heres-the-git-trick-behind-plugin4shell-je5" data-cat="Security" data-title="&quot;pinned to a sha&quot; is a lie your coding agent told you. here's the git trick behind plugin4shell.">
+  <div class="top"><span class="cat">Security</span><span class="arrow">↗</span></div>
+  <h3>&quot;Pinned to a SHA&quot; is a lie your coding agent told you. Here's the Git trick behind Plugin4Shell.</h3>
+  <div class="pmeta"><time datetime="2026-09-28">28 Sep 2026</time><span>3 min read</span></div>
+  <div class="ptags">#security #ai #git #devops</div>
+</a>
+<a class="card post  rv" style="--d:0.06s" href="https://dev.to/rudratosh/if-you-got-a-dev-support-verify-your-account-in-12-hours-comment-stop-its-a-phishing-scam-1m5g" data-cat="Security" data-title="if you got a 'dev support: verify your account in 12 hours' comment — stop. it's a phishing scam.">
+  <div class="top"><span class="cat">Security</span><span class="arrow">↗</span></div>
+  <h3>If you got a 'DEV Support: verify your account in 12 hours' comment — stop. It's a phishing scam.</h3>
+  <div class="pmeta"><time datetime="2026-09-28">28 Sep 2026</time><span>3 min read</span></div>
+  <div class="ptags">#security #phishing #meta</div>
+</a>
+<a class="card post  rv" style="--d:0.12s" href="https://dev.to/rudratosh/an-ai-correctly-ignored-a-forum-rumor-i-removed-one-label-and-it-paid-out-150-3jig" data-cat="AI-agent security" data-title="an ai correctly ignored a forum rumor. i removed one label and it paid out $150.">
+  <div class="top"><span class="cat">AI-agent security</span><span class="arrow">↗</span></div>
+  <h3>An AI Correctly Ignored a Forum Rumor. I Removed One Label and It Paid Out $150.</h3>
+  <div class="pmeta"><time datetime="2026-09-26">26 Sep 2026</time><span>7 min read</span></div>
+  <div class="ptags">#ai #machinelearning #kagglechallenge</div>
+</a>
+<a class="card post  rv" style="--d:0s" href="https://dev.to/rudratosh/i-almost-built-a-startup-this-week-the-evidence-said-no-in-one-afternoon-2jd0" data-cat="Career" data-title="i almost built a startup this week. the evidence said no — in one afternoon.">
+  <div class="top"><span class="cat">Career</span><span class="arrow">↗</span></div>
+  <h3>I Almost Built a Startup This Week. The Evidence Said No — In One Afternoon.</h3>
+  <div class="pmeta"><time datetime="2026-09-26">26 Sep 2026</time><span>5 min read</span></div>
+  <div class="ptags">#startup #career #ai</div>
+</a>
+<a class="card post  rv" style="--d:0.06s" href="https://dev.to/rudratosh/10-years-in-everything-i-was-proud-of-as-a-junior-was-wrong-igo" data-cat="Career" data-title="10 years in, everything i was proud of as a junior was wrong">
+  <div class="top"><span class="cat">Career</span><span class="arrow">↗</span></div>
+  <h3>10 Years In, Everything I Was Proud Of As a Junior Was Wrong</h3>
+  <div class="pmeta"><time datetime="2026-09-26">26 Sep 2026</time><span>4 min read</span></div>
+  <div class="ptags">#career #backend #programming</div>
+</a>
+<a class="card post  rv" style="--d:0.12s" href="https://dev.to/rudratosh/your-ai-agent-will-follow-a-strangers-instructions-heres-how-i-actually-test-for-it-1lg0" data-cat="AI-agent security" data-title="your ai agent will follow a stranger's instructions. here's how i actually test for it.">
+  <div class="top"><span class="cat">AI-agent security</span><span class="arrow">↗</span></div>
+  <h3>Your AI Agent Will Follow a Stranger's Instructions. Here's How I Actually Test For It.</h3>
+  <div class="pmeta"><time datetime="2026-09-26">26 Sep 2026</time><span>5 min read</span></div>
+  <div class="ptags">#ai #security #python #opensource</div>
+</a>
+<a class="card post  rv" style="--d:0s" href="https://dev.to/rudratosh/the-hidden-bill-where-ai-agent-costs-actually-come-from-56fi" data-cat="AI &amp; LLMs" data-title="the hidden bill: where ai agent costs actually come from">
+  <div class="top"><span class="cat">AI &amp; LLMs</span><span class="arrow">↗</span></div>
+  <h3>The Hidden Bill: Where AI Agent Costs Actually Come From</h3>
+  <div class="pmeta"><time datetime="2026-09-25">25 Sep 2026</time><span>5 min read</span></div>
+  <div class="ptags">#ai #agents #llm #cost</div>
+</a>
+<a class="card post  rv" style="--d:0.06s" href="https://dev.to/rudratosh/i-tested-10-prompt-injection-detectors-on-629-real-ai-agent-attacks-291h" data-cat="AI-agent security" data-title="i tested 10 prompt-injection detectors on 629 real ai agent attacks">
+  <div class="top"><span class="cat">AI-agent security</span><span class="arrow">↗</span></div>
+  <h3>I tested 10 prompt-injection detectors on 629 real AI agent attacks</h3>
+  <div class="pmeta"><time datetime="2026-09-24">24 Sep 2026</time><span>4 min read</span></div>
+  <div class="ptags">#ai #security #llm #opensource</div>
+</a>
+<a class="card post  rv" style="--d:0.12s" href="https://dev.to/rudratosh/sanitys-knowledge-base-stopped-6-of-7-poisoned-pages-the-7th-fooled-claude-opus-5-4fhp" data-cat="AI-agent security" data-title="sanity's knowledge base stopped 6 of 7 poisoned pages. the 7th fooled claude opus 5.">
+  <div class="top"><span class="cat">AI-agent security</span><span class="arrow">↗</span></div>
+  <h3>Sanity's Knowledge Base stopped 6 of 7 poisoned pages. The 7th fooled Claude Opus 5.</h3>
+  <div class="pmeta"><time datetime="2026-09-24">24 Sep 2026</time><span>7 min read</span></div>
+  <div class="ptags">#ai #sanity #devchallenge</div>
+</a>
+<a class="card post  rv" style="--d:0s" href="https://dev.to/rudratosh/ai-agents-cant-tell-whos-giving-the-orders-so-i-built-a-tiny-gate-588f" data-cat="AI-agent security" data-title="ai agents can't tell who's giving the orders. so i built a tiny gate.">
+  <div class="top"><span class="cat">AI-agent security</span><span class="arrow">↗</span></div>
+  <h3>AI agents can't tell who's giving the orders. So I built a tiny gate.</h3>
+  <div class="pmeta"><time datetime="2026-09-24">24 Sep 2026</time><span>7 min read</span></div>
+  <div class="ptags">#ai #security #python #opensource</div>
+</a>
+  </div>
+  <p class="empty" id="empty">No posts match that search.</p>
+
+  <section style="padding-top:120px;text-align:center">
+    <p class="cta-sub rv" style="margin-bottom:24px">New posts go up on DEV first.</p>
+    <div class="links rv" style="justify-content:center"><a class="btn primary mag" href="https://dev.to/rudratosh">Follow on DEV ↗</a><a class="btn mag" href="../index.html">← Back home</a></div>
+  </section>
+</div>
+</main>
+<footer style="padding-top:80px">
+  <div class="wrap">
+    <div class="foot">
+      <span>© <span id="y">2026</span> Rudratosh Shastri · Last updated <time datetime="2026-10-13">13 Oct 2026</time></span>
+      <nav aria-label="Profiles"><a href="../index.html">Home</a><a href="https://github.com/rudratoshs" rel="me">GitHub</a><a href="https://www.linkedin.com/in/rudratosh-shastri/" rel="me">LinkedIn</a><a href="https://dev.to/rudratosh" rel="me">DEV</a><a href="https://x.com/jack_reacherrr" rel="me">X</a><a href="https://medium.com/@rudratosh" rel="me">Medium</a></nav>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches,d=document,root=d.documentElement;
+d.getElementById('y').textContent=new Date().getFullYear();
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -6% 0px'});
+d.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
+var posts=[].slice.call(d.querySelectorAll('.post')),q=d.getElementById('q'),rc=d.getElementById('rc'),em=d.getElementById('empty'),btns=d.querySelectorAll('.filters button'),cat='All';
+function apply(){var t=q.value.trim().toLowerCase(),n=0;posts.forEach(function(p){var ok=(cat==='All'||p.dataset.cat===cat)&&(!t||p.dataset.title.indexOf(t)>-1);p.classList.toggle('hide',!ok);if(ok){n++;p.classList.add('in');p.classList.remove('pop');void p.offsetWidth;if(!RM){p.style.animationDelay=Math.min(n*.03,.4)+'s';p.classList.add('pop')}}});posts[0].classList.toggle('feature',cat==='All'&&!t);rc.textContent=n+(n===1?' post':' posts');em.style.display=n?'none':'block'}
+btns.forEach(function(b){b.addEventListener('click',function(){cat=b.dataset.f;btns.forEach(function(x){x.setAttribute('aria-pressed',x===b)});apply()})});
+q.addEventListener('input',apply);
+addEventListener('scroll',function(){var h=root.scrollHeight-innerHeight;root.style.setProperty('--p',h>0?scrollY/h:0)},{passive:true});
+var mx=innerWidth/2,my=innerHeight/3;
+addEventListener('pointermove',function(e){mx=e.clientX;my=e.clientY;root.style.setProperty('--ox',mx+'px');root.style.setProperty('--oy',my+'px')},{passive:true});
+posts.forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')})});
+if(!RM&&matchMedia('(hover:hover)').matches){d.querySelectorAll('.mag').forEach(function(b){b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.25)+'px,'+((e.clientY-r.top-r.height/2)*.35)+'px)'});b.addEventListener('pointerleave',function(){b.style.transition='transform .6s cubic-bezier(.16,1,.3,1)';b.style.transform='';setTimeout(function(){b.style.transition=''},600)})})}
+var cv=d.getElementById('bg'),cx=cv.getContext('2d'),W,H,DPR=Math.min(2,devicePixelRatio||1),G=34;
+function size(){W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;cx.setTransform(DPR,0,0,DPR,0,0)}size();addEventListener('resize',size);
+function col(){return getComputedStyle(root).getPropertyValue('--dot').trim()}var DC=col();matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){DC=col()});
+function draw(t){cx.clearRect(0,0,W,H);var off=(scrollY*.15)%G;for(var x=G/2;x<W;x+=G){for(var y=G/2-off;y<H+G;y+=G){var dx=x-mx,dy=y-my,dd=Math.sqrt(dx*dx+dy*dy),k=Math.max(0,1-dd/220);var wv=RM?0:Math.sin(x*.012+y*.01+t*.0008)*.5+.5;var a=.05+wv*.05+k*.55,r=1+k*1.6;cx.fillStyle=k>.05?'rgba(201,162,79,'+a+')':'rgba('+DC+','+a+')';cx.beginPath();cx.arc(x+dx*k*-.08,y+dy*k*-.08,r,0,6.283);cx.fill()}}if(!RM)requestAnimationFrame(draw)}
+requestAnimationFrame(draw);
+})();
+</script>
+<script>
+/* Keyless: pulls latest published dev.to posts and prepends any not already in
+   the static archive, so new articles appear automatically. No API key — the
+   /articles endpoint is public. If offline/down, the static archive still shows. */
+(async () => {
+  const list = document.getElementById('list');
+  if (!list) return;
+  try {
+    const res = await fetch('https://dev.to/api/articles?username=rudratosh&per_page=60');
+    if (!res.ok) return;
+    const posts = await res.json();
+    const have = new Set([...list.querySelectorAll('a.card')].map(a => a.getAttribute('href')));
+    const esc = s => (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    const frag = document.createDocumentFragment();
+    posts.filter(p => !have.has(p.url)).forEach(p => {
+      const cat = (p.tag_list && p.tag_list[0]) ? p.tag_list[0].replace(/\b\w/g, c => c.toUpperCase()) : 'DEV';
+      const d = p.published_at ? new Date(p.published_at) : new Date();
+      const date = d.toLocaleDateString('en-GB', {day:'2-digit', month:'short', year:'numeric'});
+      const rt = p.reading_time_minutes || 1;
+      const tags = (p.tag_list||[]).map(t => '#'+t).join(' ');
+      const el = document.createElement('a');
+      el.className = 'card post rv in';
+      el.href = p.url; el.setAttribute('data-cat', cat);
+      el.setAttribute('data-title', (p.title||'').toLowerCase());
+      el.innerHTML = `<div class="top"><span class="cat">${esc(cat)}</span><span class="arrow">↗</span></div>`
+        + `<h3>${esc(p.title)}</h3>`
+        + `<div class="pmeta"><time datetime="${d.toISOString().slice(0,10)}">${date}</time><span>${rt} min read</span></div>`
+        + `<div class="ptags">${esc(tags)}</div>`;
+      frag.appendChild(el);
+    });
+    if (frag.childNodes.length) list.insertBefore(frag, list.firstChild);
+  } catch (e) { /* static archive remains */ }
+})();
+</script>
+
+</body>
+</html>

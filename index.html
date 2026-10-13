@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rudratosh Shastri — AI Agent Security &amp; Full-Stack Engineer</title>
-<meta name="description" content="Rudratosh Shastri is an AI-agent security and full-stack engineer from Indore, India. Creator of buried-injections and taintgate; founder of Export Bank Statement and Brisk Type.">
 <meta name="google-site-verification" content="8hxe95GaPCDwb9wYR6RVQJDF8e-8Fmt7Ge9baqj3kvY" />
+<meta name="description" content="Rudratosh Shastri is an AI-agent security and full-stack engineer from Indore, India. Creator of buried-injections and taintgate; founder of Export Bank Statement and Brisk Type.">
 <link rel="canonical" href="https://rudratoshs.github.io/">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Rudratosh Shastri">
@@ -282,6 +282,21 @@
   .foot nav{display:flex;gap:22px;flex-wrap:wrap}
   .foot a{color:var(--muted);text-decoration:none}.foot a:hover{color:var(--gold)}
 
+
+  .post{min-height:250px;gap:12px;padding:26px}
+  .post h3{font:600 clamp(19px,1.7vw,22px)/1.28 var(--sans);letter-spacing:-.02em;margin:4px 0 0;text-wrap:pretty}
+  .post.feature h3{font-size:clamp(28px,3.2vw,44px);line-height:1.08;letter-spacing:-.035em;max-width:20ch}
+  .post .cat{color:var(--gold)}
+  .pmeta{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:auto;font:500 12.5px/1 var(--mono);color:var(--muted)}
+  .pmeta>*{white-space:nowrap}
+  .post .cat{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .pmeta span::before{content:"·";margin-right:14px}
+  .ptags{font:500 12px/1.5 var(--mono);color:var(--muted);opacity:.8}
+  .blog-grid .s2{grid-row:span 1}
+  @media(min-width:901px){.blog-grid .s2{grid-column:span 3}.blog-grid .feature{grid-column:span 6}}
+  @media(min-width:1200px){.blog-grid{grid-template-columns:repeat(8,minmax(0,1fr))}.blog-grid .feature{grid-column:span 4;grid-row:span 2}.blog-grid .s2{grid-column:span 2}.blog-grid .s2 .ptags{display:none}}
+  .post.feature{justify-content:flex-start}
+  .post.feature h3{margin-bottom:auto}
   .rv{opacity:0;transform:translateY(36px);filter:blur(8px);transition:opacity 1s var(--ease),transform 1.1s var(--ease),filter 1s var(--ease);transition-delay:var(--d,0s)}
   .rv.in{opacity:1;transform:none;filter:none}
 
@@ -304,7 +319,7 @@
 
 <nav class="nav" aria-label="Sections">
   <a class="logo" href="#top" aria-label="Top">RS</a>
-  <a href="#work">Work</a><a href="#opensource">Open source</a><a href="#products">Products</a><a href="#writing">Writing</a><a href="#faq">FAQ</a>
+  <a href="#work">Work</a><a href="#opensource">Open source</a><a href="#products">Products</a><a href="#blog">Blog</a><a href="#faq">FAQ</a>
 </nav>
 
 <main id="main">
@@ -390,16 +405,42 @@
     </div>
   </section>
 
-  <section id="writing">
-    <div class="label rv">04 · Writing</div>
+  <section id="blog">
+    <div class="label rv">04 · Blog</div>
     <h2 class="rv">Notes from <b>production</b></h2>
-    <ul class="posts">
-      <li class="rv"><a href="https://dev.to/rudratosh/your-ai-agent-will-follow-a-strangers-instructions-heres-how-i-actually-test-for-it-1lg0"><span class="n">01</span><span class="t">Your AI Agent Will Follow a Stranger's Instructions. Here's How I Actually Test For It.</span><span class="m">AI security</span><span class="go">↗</span></a></li>
-      <li class="rv"><a href="https://dev.to/rudratosh/your-shopping-agent-reads-the-reviews-attackers-write-the-reviews-guess-who-wins-3lef"><span class="n">02</span><span class="t">Your shopping agent reads the reviews. Attackers write the reviews. Guess who wins.</span><span class="m">Prompt injection</span><span class="go">↗</span></a></li>
-      <li class="rv"><a href="https://dev.to/rudratosh/i-let-ai-write-my-code-for-a-month-the-junior-devs-caught-what-it-broke-i-didnt-be2"><span class="n">03</span><span class="t">I let AI write my code for a month. The junior devs caught what it broke — I didn't.</span><span class="m">AI-assisted coding</span><span class="go">↗</span></a></li>
-      <li class="rv"><a href="https://dev.to/rudratosh/10-years-in-everything-i-was-proud-of-as-a-junior-was-wrong-igo"><span class="n">04</span><span class="t">10 Years In, Everything I Was Proud Of As a Junior Was Wrong</span><span class="m">Career</span><span class="go">↗</span></a></li>
-    </ul>
-    <div class="more rv"><a class="btn mag" href="https://dev.to/rudratosh">All posts on DEV ↗</a></div>
+    <div class="bento blog-grid">
+<a class="card post s4 feature rv" style="--d:0s" href="https://dev.to/rudratosh/can-a-local-llm-replace-claude-code-the-benchmark-everyone-quotes-is-the-wrong-one-2kna" data-cat="AI &amp; LLMs" data-title="can a local llm replace claude code? the benchmark everyone quotes is the wrong one.">
+  <div class="top"><span class="cat">AI &amp; LLMs</span><span class="arrow">↗</span></div>
+  <h3>Can a local LLM replace Claude Code? The benchmark everyone quotes is the wrong one.</h3>
+  <div class="pmeta"><time datetime="2026-10-12">12 Oct 2026</time><span>11 min read</span></div>
+  <div class="ptags">#ai #llm #coding #opensource</div>
+</a>
+<a class="card post s2 rv" style="--d:0.08s" href="https://dev.to/rudratosh/metas-prompt-injection-detector-caught-1-of-real-agent-attacks-one-config-change-made-it-99-2jom" data-cat="AI-agent security" data-title="meta's prompt-injection detector caught 1% of real agent attacks. one config change made it 99%. that's the problem.">
+  <div class="top"><span class="cat">AI-agent security</span><span class="arrow">↗</span></div>
+  <h3>Meta's prompt-injection detector caught 1% of real agent attacks. One config change made it 99%. That's the problem.</h3>
+  <div class="pmeta"><time datetime="2026-09-29">29 Sep 2026</time><span>6 min read</span></div>
+  <div class="ptags">#ai #security #machinelearning #opensource</div>
+</a>
+<a class="card post s2 rv" style="--d:0s" href="https://dev.to/rudratosh/the-sandbox-had-no-internet-the-ai-agent-got-out-through-dns-anyway-2cbh" data-cat="AI-agent security" data-title="the sandbox had no internet. the ai agent got out through dns anyway.">
+  <div class="top"><span class="cat">AI-agent security</span><span class="arrow">↗</span></div>
+  <h3>The sandbox had no internet. The AI agent got out through DNS anyway.</h3>
+  <div class="pmeta"><time datetime="2026-09-28">28 Sep 2026</time><span>3 min read</span></div>
+  <div class="ptags">#ai #security #agents #devops</div>
+</a>
+<a class="card post s2 rv" style="--d:0.08s" href="https://dev.to/rudratosh/your-ai-guardrail-is-green-its-also-catching-nothing-5eel" data-cat="AI-agent security" data-title="your ai guardrail is green. it's also catching nothing.">
+  <div class="top"><span class="cat">AI-agent security</span><span class="arrow">↗</span></div>
+  <h3>Your AI guardrail is green. It's also catching nothing.</h3>
+  <div class="pmeta"><time datetime="2026-09-30">30 Sep 2026</time><span>7 min read</span></div>
+  <div class="ptags">#security #ai #machinelearning #devops</div>
+</a>
+<a class="card post s2 rv" style="--d:0.16s" href="https://dev.to/rudratosh/eli5-why-can-hiding-one-sentence-inside-a-web-page-make-an-ai-ignore-its-own-owner-and-obey-a-203p" data-cat="AI-agent security" data-title="eli5: why can hiding one sentence inside a web page make an ai ignore its own owner and obey a total stranger?">
+  <div class="top"><span class="cat">AI-agent security</span><span class="arrow">↗</span></div>
+  <h3>ELI5: Why can hiding one sentence inside a web page make an AI ignore its own owner and obey a total stranger?</h3>
+  <div class="pmeta"><time datetime="2026-10-01">1 Oct 2026</time><span>4 min read</span></div>
+  <div class="ptags">#ai #security #explainlikeimfive</div>
+</a>
+    </div>
+    <div class="more rv" style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn primary mag" href="blog/index.html">Read all 31 posts →</a><a class="btn mag" href="https://dev.to/rudratosh">Follow on DEV ↗</a></div>
   </section>
 
   <section id="faq" class="faq">
@@ -426,7 +467,7 @@
     </div>
     <div class="foot">
       <span>© <span id="y">2026</span> Rudratosh Shastri · Last updated <time datetime="2026-10-13">13 Oct 2026</time></span>
-      <nav aria-label="Profiles"><a href="https://github.com/rudratoshs" rel="me">GitHub</a><a href="https://www.linkedin.com/in/rudratosh-shastri/" rel="me">LinkedIn</a><a href="https://dev.to/rudratosh" rel="me">DEV</a><a href="https://x.com/jack_reacherrr" rel="me">X</a><a href="https://medium.com/@rudratosh" rel="me">Medium</a></nav>
+      <nav aria-label="Profiles"><a href="blog/index.html">Blog</a><a href="https://github.com/rudratoshs" rel="me">GitHub</a><a href="https://www.linkedin.com/in/rudratosh-shastri/" rel="me">LinkedIn</a><a href="https://dev.to/rudratosh" rel="me">DEV</a><a href="https://x.com/jack_reacherrr" rel="me">X</a><a href="https://medium.com/@rudratosh" rel="me">Medium</a></nav>
     </div>
   </div>
 </footer>
@@ -460,7 +501,7 @@ var sc=d.getElementById('scrub'),words=sc.textContent.split(' ');sc.textContent=
 var wds=sc.querySelectorAll('.wd');
 
 // nav active
-var secs=['work','opensource','products','writing','faq'].map(function(id){return d.getElementById(id)}),navs=d.querySelectorAll('.nav a:not(.logo)');
+var secs=['work','opensource','products','blog','faq'].map(function(id){return d.getElementById(id)}),navs=d.querySelectorAll('.nav a:not(.logo)');
 
 function onScroll(){
   var y=scrollY,h=root.scrollHeight-innerHeight;root.style.setProperty('--p',h>0?y/h:0);

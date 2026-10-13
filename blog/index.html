@@ -877,42 +877,36 @@ function size(){W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;cx.set
 function col(){return getComputedStyle(root).getPropertyValue('--dot').trim()}var DC=col();matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){DC=col()});
 function draw(t){cx.clearRect(0,0,W,H);var off=(scrollY*.15)%G;for(var x=G/2;x<W;x+=G){for(var y=G/2-off;y<H+G;y+=G){var dx=x-mx,dy=y-my,dd=Math.sqrt(dx*dx+dy*dy),k=Math.max(0,1-dd/220);var wv=RM?0:Math.sin(x*.012+y*.01+t*.0008)*.5+.5;var a=.05+wv*.05+k*.55,r=1+k*1.6;cx.fillStyle=k>.05?'rgba(201,162,79,'+a+')':'rgba('+DC+','+a+')';cx.beginPath();cx.arc(x+dx*k*-.08,y+dy*k*-.08,r,0,6.283);cx.fill()}}if(!RM)requestAnimationFrame(draw)}
 requestAnimationFrame(draw);
-})();
-</script>
-<script>
-/* Keyless: pulls latest published dev.to posts and prepends any not already in
-   the static archive, so new articles appear automatically. No API key — the
-   /articles endpoint is public. If offline/down, the static archive still shows. */
-(async () => {
-  const list = document.getElementById('list');
-  if (!list) return;
-  try {
-    const res = await fetch('https://dev.to/api/articles?username=rudratosh&per_page=60');
-    if (!res.ok) return;
-    const posts = await res.json();
-    const have = new Set([...list.querySelectorAll('a.card')].map(a => a.getAttribute('href')));
-    const esc = s => (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-    const frag = document.createDocumentFragment();
-    posts.filter(p => !have.has(p.url)).forEach(p => {
-      const cat = (p.tag_list && p.tag_list[0]) ? p.tag_list[0].replace(/\b\w/g, c => c.toUpperCase()) : 'DEV';
-      const d = p.published_at ? new Date(p.published_at) : new Date();
-      const date = d.toLocaleDateString('en-GB', {day:'2-digit', month:'short', year:'numeric'});
-      const rt = p.reading_time_minutes || 1;
-      const tags = (p.tag_list||[]).map(t => '#'+t).join(' ');
-      const el = document.createElement('a');
-      el.className = 'card post rv in';
-      el.href = p.url; el.setAttribute('data-cat', cat);
-      el.setAttribute('data-title', (p.title||'').toLowerCase());
-      el.innerHTML = `<div class="top"><span class="cat">${esc(cat)}</span><span class="arrow">↗</span></div>`
-        + `<h3>${esc(p.title)}</h3>`
-        + `<div class="pmeta"><time datetime="${d.toISOString().slice(0,10)}">${date}</time><span>${rt} min read</span></div>`
-        + `<div class="ptags">${esc(tags)}</div>`;
-      frag.appendChild(el);
+/* keyless live fetch: prepend newly-published dev.to posts, then refresh counts + filters */
+(function(){
+  var list=d.getElementById('list'); if(!list) return;
+  fetch('https://dev.to/api/articles?username=rudratosh&per_page=60').then(function(r){return r.ok?r.json():[]}).then(function(arr){
+    if(!arr||!arr.length) return;
+    var have={}; [].slice.call(list.querySelectorAll('a.card')).forEach(function(a){have[a.getAttribute('href')]=1});
+    var esc=function(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')};
+    var frag=d.createDocumentFragment(), added=0;
+    arr.forEach(function(p){
+      if(have[p.url]) return;
+      var cat=(p.tag_list&&p.tag_list[0])?p.tag_list[0].replace(/\b\w/g,function(c){return c.toUpperCase()}):'DEV';
+      var dt=p.published_at?new Date(p.published_at):new Date();
+      var date=dt.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+      var rt=p.reading_time_minutes||1, tags=(p.tag_list||[]).map(function(t){return '#'+t}).join(' ');
+      var el=d.createElement('a'); el.className='card post rv in'; el.href=p.url;
+      el.setAttribute('data-cat',cat); el.setAttribute('data-title',(p.title||'').toLowerCase());
+      el.innerHTML='<div class="top"><span class="cat">'+esc(cat)+'</span><span class="arrow">↗</span></div>'
+        +'<h3>'+esc(p.title)+'</h3>'
+        +'<div class="pmeta"><time datetime="'+dt.toISOString().slice(0,10)+'">'+date+'</time><span>'+rt+' min read</span></div>'
+        +'<div class="ptags">'+esc(tags)+'</div>';
+      frag.appendChild(el); added++;
     });
-    if (frag.childNodes.length) list.insertBefore(frag, list.firstChild);
-  } catch (e) { /* static archive remains */ }
+    if(!added) return;
+    list.insertBefore(frag,list.firstChild);
+    posts=[].slice.call(d.querySelectorAll('.post'));
+    btns.forEach(function(b){var f=b.dataset.f;var n=(f==='All')?posts.length:posts.filter(function(c){return c.dataset.cat===f}).length;var s=b.querySelector('sup'); if(s) s.textContent=n;});
+    apply();
+  }).catch(function(){});
+})();
 })();
 </script>
-
 </body>
 </html>

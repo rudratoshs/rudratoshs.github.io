@@ -1,0 +1,18 @@
+# Rudratosh Shastri
+
+> AI-agent security and full-stack engineer based in Indore, India (~15 years in backend engineering). Technical Lead & Senior Backend Architect at PharmaForceIQ. Creator of buried-injections and taintgate. Founder of Export Bank Statement and Brisk Type. Name is spelled "Rudratosh" (not Rudraksh).
+
+## Open source
+- [buried-injections](https://github.com/rudratoshs/buried-injections): MIT benchmark testing 10 prompt-injection detectors against 629 real AgentDojo attacks.
+- [taintgate](https://github.com/rudratoshs/taintgate): MIT provenance-aware policy gate that blocks AI-agent tool calls built from untrusted input.
+
+## Products
+- [Export Bank Statement](https://www.exportbankstatement.com/): converts PDF bank statements to Excel, CSV, QBO, OFX, QIF.
+- [Brisk Type](https://www.producthunt.com/posts/brisktype): typing/productivity product launched on Product Hunt.
+
+## Profiles
+- [GitHub](https://github.com/rudratoshs)
+- [LinkedIn](https://www.linkedin.com/in/rudratosh-shastri/)
+- [DEV](https://dev.to/rudratosh)
+- [X](https://x.com/jack_reacherrr)
+- [Product Hunt](https://www.producthunt.com/@rudratosh)

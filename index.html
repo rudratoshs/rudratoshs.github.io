@@ -383,6 +383,56 @@
         <p>A provenance-aware policy gate for agent tool calls: block actions built from untrusted input, not just suspicious-looking text.</p>
         <div class="flow" aria-hidden="true"><span>read_email <em>untrusted</em></span><span>send_email <em>tainted</em></span><span class="x">blocked <em style="color:inherit">✕</em></span></div>
       </a>
+      <a class="card s2 rv" style="--d:.16s" href="https://github.com/rudratoshs/agentverify">
+        <div class="top"><span>Reference impl · Python</span><span class="arrow">↗</span></div>
+        <h3>agentverify</h3>
+        <p>Judge an AI agent by what it actually did at the tool-call boundary — not what it said. Zero-dependency runtime agent-security verification.</p>
+      </a>
+      <a class="card s2 rv" style="--d:.22s" href="https://github.com/rudratoshs/assertstate">
+        <div class="top"><span>Harness · Python</span><span class="arrow">↗</span></div>
+        <h3>assertstate</h3>
+        <p>A deterministic acceptance harness for browser agents: verifies the real backend outcome (DB / API / DOM), never the agent's self-report.</p>
+      </a>
+      <a class="card s2 rv" style="--d:.28s" href="https://github.com/rudratoshs/poisoned-pages">
+        <div class="top"><span>RAG security · Python</span><span class="arrow">↗</span></div>
+        <h3>poisoned-pages</h3>
+        <p>A support agent reads a poisoned Sanity help center and still isn't tricked into moving money. Sanity KB + Claude + taintgate.</p>
+      </a>
+      <a class="card s2 rv" style="--d:.1s" href="https://github.com/rudratoshs/who-said-that">
+        <div class="top"><span>Benchmark · Python</span><span class="arrow">↗</span></div>
+        <h3>who-said-that</h3>
+        <p>Does an AI check WHO said something before acting? Strip the source label off a rumor and watch a careful model spend your money.</p>
+      </a>
+      <a class="card s2 rv" style="--d:.16s" href="https://github.com/rudratoshs/nishedh">
+        <div class="top"><span>Civic tech · Python</span><span class="arrow">↗</span></div>
+        <h3>nishedh</h3>
+        <p>Checks what India's online marketplaces sell against the government's own registries (pesticides, radio equipment). Built on SerpApi.</p>
+      </a>
+      <a class="card s2 rv" style="--d:.22s" href="https://github.com/rudratoshs/exportbankstatement-sdk">
+        <div class="top"><span>SDK · TypeScript</span><span class="arrow">↗</span></div>
+        <h3>exportbankstatement-sdk</h3>
+        <p>Official API clients (TypeScript, Python, Postman) for the Export Bank Statement API — convert statement PDFs to Excel / CSV / QBO.</p>
+      </a>
+      <a class="card s2 rv" style="--d:.1s" href="https://github.com/rudratoshs/ai-content-recommender">
+        <div class="top"><span>AI · JavaScript</span><span class="arrow">↗</span></div>
+        <h3>ai-content-recommender</h3>
+        <p>AI-powered content recommendation system using the ChatGPT and Mistral APIs.</p>
+      </a>
+      <a class="card s2 rv" style="--d:.16s" href="https://github.com/rudratoshs/spam-email-classifier">
+        <div class="top"><span>ML · Jupyter</span><span class="arrow">↗</span></div>
+        <h3>spam-email-classifier</h3>
+        <p>Naive Bayes spam/ham classifier on the Enron dataset — 98% accuracy, with preprocessing, training and evaluation.</p>
+      </a>
+      <a class="card s2 rv" style="--d:.22s" href="https://github.com/rudratoshs/movie-recommendations-system">
+        <div class="top"><span>Project · JavaScript</span><span class="arrow">↗</span></div>
+        <h3>movie-recommendations-system</h3>
+        <p>A movie recommendation system.</p>
+      </a>
+      <a class="card s2 rv" style="--d:.28s" href="https://github.com/rudratoshs/sql-query-optimizer">
+        <div class="top"><span>Project · SQL</span><span class="arrow">↗</span></div>
+        <h3>sql-query-optimizer</h3>
+        <p>Experiments in SQL query optimization.</p>
+      </a>
     </div>
   </section>
 
@@ -526,5 +576,33 @@ function draw(t){cx.clearRect(0,0,W,H);var off=(scrollY*.15)%G;for(var x=G/2;x<W
 requestAnimationFrame(draw);
 })();
 </script>
+<script>
+/* Homepage blog teaser: keyless live-refresh with the latest dev.to posts.
+   Falls back to the static cards if the API is unreachable. No API key. */
+(function(){
+  var grid=document.querySelector('#blog .blog-grid'); if(!grid) return;
+  var esc=function(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')};
+  fetch('https://dev.to/api/articles?username=rudratosh&per_page=100').then(function(r){return r.ok?r.json():[]}).then(function(arr){
+    if(!arr||!arr.length) return;
+    var html=arr.slice(0,6).map(function(p,i){
+      var cls='card post '+(i===0?'s4 feature':'s2')+' rv in';
+      var cat=(p.tag_list&&p.tag_list[0])?p.tag_list[0].replace(/\b\w/g,function(c){return c.toUpperCase()}):'DEV';
+      var dt=p.published_at?new Date(p.published_at):new Date();
+      var date=dt.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+      var rt=p.reading_time_minutes||1, tags=(p.tag_list||[]).map(function(t){return '#'+t}).join(' ');
+      return '<a class="'+cls+'" style="--d:'+(i*0.06)+'s" href="'+p.url+'" data-cat="'+esc(cat)+'" data-title="'+esc((p.title||'').toLowerCase())+'">'
+        +'<div class="top"><span class="cat">'+esc(cat)+'</span><span class="arrow">↗</span></div>'
+        +'<h3>'+esc(p.title)+'</h3>'
+        +'<div class="pmeta"><time datetime="'+dt.toISOString().slice(0,10)+'">'+date+'</time><span>'+rt+' min read</span></div>'
+        +'<div class="ptags">'+esc(tags)+'</div></a>';
+    }).join('');
+    grid.innerHTML=html;
+    document.querySelectorAll('a[href="blog/index.html"]').forEach(function(a){
+      if(/Read all\s+\d+\s+posts/i.test(a.textContent)) a.textContent='Read all '+arr.length+' posts →';
+    });
+  }).catch(function(){});
+})();
+</script>
+
 </body>
 </html>

@@ -6,6 +6,10 @@
 - [buried-injections](https://github.com/rudratoshs/buried-injections): MIT benchmark testing 10 prompt-injection detectors against 629 real AgentDojo attacks.
 - [taintgate](https://github.com/rudratoshs/taintgate): MIT provenance-aware policy gate that blocks AI-agent tool calls built from untrusted input.
 
+## Services
+- [AI Agent Workflow Reliability Review](https://rudratoshs.github.io/ai-agent-reliability-review/): engineering review of AI-agent workflows (state verification, side effects, retries/idempotency, queue settlement). Includes a controlled AssertState demonstration and its technical report (simulated payment workflow; not a client engagement).
+- [AssertState](https://github.com/rudratoshs/assertstate): Apache-2.0 deterministic acceptance harness that verifies agent workflows against independent, read-only application state.
+
 ## Products
 - [Export Bank Statement](https://www.exportbankstatement.com/): converts PDF bank statements to Excel, CSV, QBO, OFX, QIF.
 - [Brisk Type](https://www.producthunt.com/posts/brisktype): typing/productivity product launched on Product Hunt.
